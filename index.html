@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autonomous Mobile Robotic Arm</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --card-2:#1f2937;
+      --text:#e5e7eb;
+      --muted:#cbd5e1;
+      --accent:#38bdf8;
+      --accent-2:#22c55e;
+      --border:#334155;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(15, 23, 42, 0.95);
+      border-bottom:1px solid var(--border);
+      padding:14px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter: blur(8px);
+    }
+
+    nav .logo{
+      font-weight:700;
+      font-size:1.1rem;
+      color:white;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:0.95rem;
+    }
+
+    nav a:hover{
+      color:white;
+    }
+
+    .hero{
+      padding:90px 20px 70px;
+      text-align:center;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .hero h1{
+      font-size:3rem;
+      margin-bottom:18px;
+      color:white;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      color:var(--muted);
+      max-width:850px;
+      margin:0 auto 28px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--border);
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#082f49;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:white;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:0 20px 60px;
+    }
+
+    section{
+      margin-bottom:28px;
+      background:rgba(17, 24, 39, 0.95);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    h2{
+      font-size:1.8rem;
+      margin-bottom:14px;
+      color:white;
+    }
+
+    h3{
+      margin-top:20px;
+      margin-bottom:10px;
+      color:#f8fafc;
+      font-size:1.2rem;
+    }
+
+    h4{
+      margin-top:14px;
+      margin-bottom:8px;
+      color:#e2e8f0;
+      font-size:1rem;
+    }
+
+    p{
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    ul{
+      padding-left:20px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    li{
+      margin-bottom:8px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:20px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:var(--card-2);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+    }
+
+    .tag{
+      display:inline-block;
+      margin-top:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#0c4a6e;
+      color:#dbeafe;
+      font-size:0.85rem;
+      font-weight:700;
+    }
+
+    .placeholder{
+      margin-top:14px;
+      background:#0b1220;
+      border:1px dashed #475569;
+      border-radius:12px;
+      min-height:180px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#94a3b8;
+      text-align:center;
+      padding:16px;
+    }
+
+    .footer{
+      text-align:center;
+      color:#94a3b8;
+      padding:30px 20px 60px;
+      font-size:0.95rem;
+    }
+
+    @media (max-width: 900px){
+      .grid-2, .grid-3{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:2.2rem;
+      }
+
+      nav{
+        padding:14px 16px;
+      }
+
+      nav ul{
+        gap:10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Autonomous Mobile Robotic Arm</div>
+    <ul>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#methods">Methods</a></li>
+      <li><a href="#testing">Testing</a></li>
+      <li><a href="#management">Management</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Autonomous Mobile Robotic Arm for Object Detection and Pick-and-Place</h1>
+    <p>
+      A mechatronics project integrating ROS2, OpenCV, mobile navigation, robotic manipulation,
+      structural optimization, electrical power design, and autonomous object tracking.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#abstract">Read Overview</a>
+      <a class="btn btn-secondary" href="#testing">View Testing</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="team">
+      <h2>Team Members</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Omar Khaled Yousef</h3>
+          <p>Software, ROS2, URDF modeling, OpenCV object tracking, simulation and autonomous navigation.</p>
+        </div>
+        <div class="card">
+          <h3>Abdelaziz</h3>
+          <p>Mechanical design, CAD development, electrical architecture, battery and power system testing.</p>
+        </div>
+        <div class="card">
+          <h3>Hamza</h3>
+          <p>3D printing strategy, Ideamaker optimization, structural strength analysis, vacuum gripper study.</p>
+        </div>
+        <div class="card">
+          <h3>Khaled Jalal</h3>
+          <p>Actuation system, platform motors, encoder behavior, control strategy and ROS2-related motion feedback.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <h2>Problem Statement</h2>
+      <p>
+        Traditional robotic systems are often limited to fixed environments and lack flexibility when dealing
+        with dynamic object locations. Our project addresses this by developing an autonomous mobile robotic
+        arm capable of detecting an object, navigating toward it, and preparing for pick-and-place interaction
+        through an integrated mechanical, electrical, and software system.
+      </p>
+    </section>
+
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        This project presents the design and implementation of an autonomous mobile robotic arm system for
+        object detection, navigation, and pick-and-place preparation. The system combines a mobile platform,
+        a robotic arm, ROS2-based control, OpenCV vision tracking, encoder-based navigation feedback, and
+        a structured electrical power architecture. Mechanical components were designed and optimized for
+        fabrication using 3D printing, while load-sensitive parts were strengthened according to stress and
+        torque considerations. On the control side, a simplified URDF model of the platform was built in ROS2,
+        and OpenCV-based tracking was used to detect and follow a ball target. The platform scans its
+        environment, locates the object, navigates toward it, and stops at a defined proximity range.
+      </p>
+    </section>
+
+    <section>
+      <h2>Background - Literature Review</h2>
+      <p>
+        Autonomous robotics combines sensing, actuation, embedded control, and software coordination to allow
+        machines to perform tasks with minimal human intervention. Mobile robotics commonly relies on encoders,
+        feedback control, and perception systems for navigation, while robotic manipulators require careful
+        torque analysis, actuator selection, and structural design. This project builds on those ideas by
+        combining a mobile base with a robotic arm and integrating them through ROS2, OpenCV, URDF modeling,
+        and real hardware power distribution.
+      </p>
+    </section>
+
+    <section id="methods">
+      <h2>Methods</h2>
+
+      <h3>Engineering Analysis (Calculations and Simulations)</h3>
+
+      <h4>Sensing and Signal Architecture</h4>
+      <ul>
+        <li><strong>System Definition and Primary Sensing:</strong> OpenCV-based vision was used for target detection and tracking.</li>
+        <li><strong>Signal Conditioning and Conversion:</strong> Image input was processed to estimate target location relative to the platform.</li>
+        <li><strong>Digital Logic and Data Presentation:</strong> ROS2 and RViz2 were used to observe robot behavior and support decision logic.</li>
+      </ul>
+
+      <h4>Actuation and Mechanical Drive</h4>
+      <ul>
+        <li><strong>Fluid Power and Kinematic Chains:</strong> Vacuum gripper concept was studied and suction requirements were estimated.</li>
+        <li><strong>Electrical Actuation and Motor Selection:</strong> Servo motors were considered for the arm, and DC motors were analyzed for the platform.</li>
+        <li><strong>Embedded Controller Selection:</strong> ROS2-compatible onboard control architecture was used to coordinate movement and tracking.</li>
+      </ul>
+
+      <h4>Control Logic and Programming</h4>
+      <ul>
+        <li><strong>Firmware Development:</strong> A simple platform URDF was created in ROS2 using wheel dimensions matching the real platform.</li>
+        <li><strong>I/O Interfacing and Industrial Control:</strong> Encoder behavior was studied to support future closed-loop navigation.</li>
+        <li><strong>Communication and Networking:</strong> ROS2 was used as the communication framework between platform modeling, tracking logic, and navigation behavior.</li>
+      </ul>
+
+      <h4>Advanced Modeling and Optimization</h4>
+      <ul>
+        <li><strong>Mathematical System Modeling:</strong> Stress, load, and torque effects were considered in print parameter selection and structural design.</li>
+        <li><strong>Stability and Feedback Control:</strong> Target tracking logic was designed so the robot scans, detects, approaches, and stops at a proximity of about 20 cm.</li>
+        <li><strong>Intelligent Control and Final Design:</strong> The platform first performs a 360-degree scan, detects the ball, and then navigates toward it autonomously.</li>
+      </ul>
+    </section>
+
+    <section id="testing">
+      <h2>Testing</h2>
+
+      <h3>Prototype Construction</h3>
+      <ul>
+        <li><strong>Initial Design:</strong> CAD models and simplified URDF models were developed for testing system behavior in simulation.</li>
+        <li><strong>Final Design:</strong> Manufacturing-focused optimization was applied to 3D printed components based on stress and structural requirements.</li>
+      </ul>
+
+      <h3>Final Integration and Demonstration</h3>
+      <ul>
+        <li><strong>Testing Environment:</strong> ROS2 simulation, OpenCV tracking, and real electrical hardware connection tests were used.</li>
+        <li><strong>Success / Fail or Pass Criteria:</strong> The system is considered successful if it can detect the object, navigate toward it, and stop at the target range while maintaining stable behavior.</li>
+        <li><strong>Results:</strong> The tracking and navigation logic was demonstrated in simulation, and the electrical subsystem underwent initial real-life connection testing.</li>
+        <li><strong>Discussion:</strong> The project has progressed from conceptual design into manufacturing, hardware integration, and autonomous behavior testing, with full validation still ongoing.</li>
+      </ul>
+
+      <div class="placeholder">
+        Add demo video, RViz2 screenshots, OpenCV screenshots, hardware testing images, or final platform footage here.
+      </div>
+    </section>
+
+    <section id="management">
+      <h2>Project Management Summary</h2>
+      <h3>Gantt Chart - Updated</h3>
+      <p>
+        Weekly progress has been tracked across mechanical design, fabrication planning, actuation, power
+        architecture, ROS2 integration, and autonomous navigation. The timeline is updated regularly to reflect
+        completed and ongoing tasks.
+      </p>
+      <div class="placeholder">
+        Insert updated Gantt chart image here.
+      </div>
+    </section>
+
+    <section>
+      <h2>Bibliography</h2>
+      <ul>
+        <li>ROS2 Documentation</li>
+        <li>OpenCV Documentation</li>
+        <li>MoveIt2 Documentation</li>
+        <li>Waveshare ST3215 Servo Datasheet</li>
+        <li>Relevant robotics, mobile platform, and mechatronics references</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Appendix</h2>
+      <p>
+        This section can include CAD screenshots, torque calculations, power calculations, URDF structure,
+        tracking logic flowcharts, electrical wiring sketches, and extra testing evidence.
+      </p>
+    </section>
+
+    <section id="resources">
+      <h2>Resources - Pre Existing Software/Hardware</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Software</h3>
+          <p>ROS2, RViz2, MoveIt2, OpenCV, Ideamaker, CAD software.</p>
+        </div>
+        <div class="card">
+          <h3>Hardware</h3>
+          <p>Raspberry Pi, servo motors, DC motors, encoders, buck converters, battery, robotic arm structure.</p>
+        </div>
+        <div class="card">
+          <h3>Testing Assets</h3>
+          <p>Simulation videos, screenshots, hardware connection tests, multimeter measurements, updated Gantt chart.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="footer">
+    Autonomous Mobile Robotic Arm Project • GitHub Pages Homepage
+  </div>
+
+</body>
+</html>
