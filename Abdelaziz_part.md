@@ -8,4 +8,4 @@ It also includes current consumption analysis of all components to ensure proper
 This section describes the physical design of the robot, including the wheeled base, rotating platform, arm links, joints, and end-effector (gripper). The structure is designed to be both strong and lightweight, using materials like aluminium to reduce motor load while maintaining precision.
 
 The design emphasizes stability, smooth multi-directional movement, proper load distribution, and ease of assembly and modification.
-[Mechanical Structure](mechanical structure_Abdelaziz.pdf)
+[Mechanical Structure](mechanicalstructure_Abdelaziz.pdf)
