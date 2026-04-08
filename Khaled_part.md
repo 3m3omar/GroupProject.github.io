@@ -1,8 +1,8 @@
-##Actuator Selection and Performance Analysis
+## Actuator Selection and Performance Analysis
 
 Robotic systems use motors to transform electrical energy into mechanical energy. Motors were selected based on torque rating, speed rating, energy consumed, and ease of control of the overall system. A DC geared motor was chosen for the robot platform to provide smooth and stable motion and accurate feedback. The motor operates at 166 RPM or approximately 0.565 m/s linear speed with an estimated 2.7 watts (5.4 watts for both motors) of energy consumed per motor, therefore confirming that the motor is efficient and will provide controlled and stable movement of your robotic system.[Motor Selection and Performance Analysis](Motor_Selection_and_Performance_Analysis_Khaled.pdf)
 
-##Torque Calculation and Actuator Requirement
+## Torque Calculation and Actuator Requirement
 
 For the design of a robotic arm, torque is crucial as all the joints must support the weight of the arm and the objects being lifted by the arm. In this project, the torque needed to operate the robot has been determined by calculating the arm measurements, the weight of the object assumed to be holding it, and the maximum torque produced by the motor which is 30 kg·cm (equivalent to approximately 2.94 N·m). The analysis includes how the total weight is distributed between the arm (including any objects being lifted) and the actual load on the motor with respect to the links, the arm weight, and the weight of the motor with the total weight not exceeding the maximum allowable weight for a safe system. The result shows that the required torque on the main joint is approximately 1.85 N·m, while the required torque for the shoulder joint is approximately 4.34 N·m. Since the shoulder joint had an increased required torque, two actuators will be used to produce the required amount of force and to provide a reliable and safe system.[Torque Calculation](Torque_Calculation_Khaled.pdf)
 
