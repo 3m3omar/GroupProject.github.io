@@ -6,14 +6,19 @@
   <title>Autonomous Mobile Robotic Arm</title>
   <style>
     :root{
-      --bg:#0f172a;
-      --card:#111827;
-      --card-2:#1f2937;
-      --text:#e5e7eb;
-      --muted:#cbd5e1;
+      --bg:#081225;
+      --bg-2:#0b1730;
+      --card:#101c36;
+      --card-2:#132240;
+      --text:#eef2ff;
+      --muted:#c7d2fe;
       --accent:#38bdf8;
       --accent-2:#22c55e;
-      --border:#334155;
+      --accent-3:#f59e0b;
+      --border:#243655;
+      --shadow:0 10px 30px rgba(0,0,0,0.22);
+      --radius:18px;
+      --max:1200px;
     }
 
     *{
@@ -25,126 +30,156 @@
 
     body{
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+      background:
+        radial-gradient(circle at top, #10244a 0%, #081225 45%, #07101f 100%);
       color:var(--text);
-      line-height:1.6;
+      line-height:1.65;
+    }
+
+    a{
+      color:inherit;
     }
 
     nav{
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(15, 23, 42, 0.95);
-      border-bottom:1px solid var(--border);
-      padding:14px 30px;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      padding:16px 26px;
+      background:rgba(8,18,37,0.92);
       backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--border);
     }
 
-    nav .logo{
+    .brand{
       font-weight:700;
-      font-size:1.1rem;
-      color:white;
+      font-size:1.05rem;
+      color:#fff;
+      text-decoration:none;
     }
 
-    nav ul{
+    .nav-links{
       list-style:none;
       display:flex;
       gap:18px;
       flex-wrap:wrap;
     }
 
-    nav a{
-      color:var(--muted);
+    .nav-links a{
       text-decoration:none;
+      color:var(--muted);
       font-size:0.95rem;
     }
 
-    nav a:hover{
-      color:white;
+    .nav-links a:hover{
+      color:#fff;
     }
 
     .hero{
-      padding:90px 20px 70px;
-      text-align:center;
-      max-width:1100px;
+      max-width:var(--max);
       margin:auto;
+      padding:90px 20px 60px;
+      text-align:center;
     }
 
     .hero h1{
-      font-size:3rem;
+      font-size:3.2rem;
+      line-height:1.2;
       margin-bottom:18px;
-      color:white;
+      color:#fff;
     }
 
     .hero p{
-      font-size:1.1rem;
+      max-width:860px;
+      margin:0 auto 26px;
       color:var(--muted);
-      max-width:850px;
-      margin:0 auto 28px;
+      font-size:1.08rem;
     }
 
-    .hero-buttons{
+    .hero-actions{
       display:flex;
       justify-content:center;
-      gap:15px;
+      gap:14px;
       flex-wrap:wrap;
+      margin-bottom:26px;
     }
 
     .btn{
       display:inline-block;
-      padding:12px 22px;
-      border-radius:10px;
+      padding:12px 20px;
+      border-radius:12px;
       text-decoration:none;
       font-weight:700;
       border:1px solid var(--border);
+      transition:0.2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
     }
 
     .btn-primary{
       background:var(--accent);
       color:#082f49;
+      border-color:transparent;
     }
 
     .btn-secondary{
       background:transparent;
-      color:white;
+      color:#fff;
+    }
+
+    .hero-tags{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:7px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:0.88rem;
+      background:rgba(255,255,255,0.02);
     }
 
     .container{
-      max-width:1200px;
+      max-width:var(--max);
       margin:auto;
       padding:0 20px 60px;
     }
 
     section{
-      margin-bottom:28px;
-      background:rgba(17, 24, 39, 0.95);
+      background:rgba(16,28,54,0.92);
       border:1px solid var(--border);
-      border-radius:18px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       padding:28px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.18);
+      margin-bottom:24px;
     }
 
     h2{
-      font-size:1.8rem;
+      font-size:1.9rem;
       margin-bottom:14px;
-      color:white;
+      color:#fff;
     }
 
     h3{
+      font-size:1.25rem;
       margin-top:20px;
-      margin-bottom:10px;
-      color:#f8fafc;
-      font-size:1.2rem;
+      margin-bottom:12px;
+      color:#fff;
     }
 
     h4{
-      margin-top:14px;
-      margin-bottom:8px;
-      color:#e2e8f0;
       font-size:1rem;
+      margin-bottom:8px;
+      color:#fff;
     }
 
     p{
@@ -153,7 +188,7 @@
     }
 
     ul{
-      padding-left:20px;
+      padding-left:22px;
       color:var(--muted);
       margin-bottom:10px;
     }
@@ -164,14 +199,14 @@
 
     .grid-2{
       display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:20px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
     }
 
     .grid-3{
       display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:20px;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
     }
 
     .card{
@@ -181,52 +216,163 @@
       padding:18px;
     }
 
-    .tag{
+    .resource-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-top:16px;
+    }
+
+    .resource-card{
+      background:var(--card-2);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .resource-card:hover{
+      transform:translateY(-4px);
+      border-color:var(--accent);
+      box-shadow:0 10px 24px rgba(0,0,0,0.24);
+    }
+
+    .resource-link{
       display:inline-block;
       margin-top:8px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:#0c4a6e;
-      color:#dbeafe;
-      font-size:0.85rem;
+      padding:10px 14px;
+      border-radius:10px;
+      background:var(--accent);
+      color:#082f49;
+      text-decoration:none;
       font-weight:700;
+    }
+
+    .resource-link.secondary{
+      background:transparent;
+      color:#fff;
+      border:1px solid var(--border);
+    }
+
+    .quick-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:14px;
+      margin-bottom:18px;
+    }
+
+    .quick-links a{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid var(--border);
+      color:#fff;
+      background:#0f1b31;
+      transition:0.2s ease;
+    }
+
+    .quick-links a:hover{
+      border-color:var(--accent);
+      color:var(--accent);
+      transform:translateY(-2px);
+    }
+
+    .media-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .media-card{
+      background:var(--card-2);
+      border:1px solid var(--border);
+      border-radius:14px;
+      overflow:hidden;
+    }
+
+    .media-card img,
+    .media-card video{
+      width:100%;
+      display:block;
+      background:#000;
+    }
+
+    .media-content{
+      padding:14px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .gallery a{
+      display:block;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      transition:transform .2s ease, border-color .2s ease;
+      background:#0b1220;
+    }
+
+    .gallery a:hover{
+      transform:scale(1.02);
+      border-color:var(--accent);
+    }
+
+    .gallery img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
     }
 
     .placeholder{
       margin-top:14px;
       background:#0b1220;
-      border:1px dashed #475569;
-      border-radius:12px;
+      border:1px dashed #4b5f86;
+      border-radius:14px;
       min-height:180px;
       display:flex;
       align-items:center;
       justify-content:center;
-      color:#94a3b8;
+      color:#90a3c3;
       text-align:center;
       padding:16px;
     }
 
     .footer{
       text-align:center;
-      color:#94a3b8;
-      padding:30px 20px 60px;
+      color:#9fb0cf;
+      padding:24px 20px 50px;
+      font-size:0.95rem;
+    }
+
+    .small{
       font-size:0.95rem;
     }
 
     @media (max-width: 900px){
-      .grid-2, .grid-3{
+      .grid-2,
+      .grid-3{
         grid-template-columns:1fr;
       }
 
       .hero h1{
-        font-size:2.2rem;
+        font-size:2.3rem;
       }
 
       nav{
         padding:14px 16px;
       }
 
-      nav ul{
+      .nav-links{
         gap:10px;
       }
     }
@@ -235,26 +381,38 @@
 <body>
 
   <nav>
-    <div class="logo">Autonomous Mobile Robotic Arm</div>
-    <ul>
+    <a href="#" class="brand">Autonomous Mobile Robotic Arm</a>
+    <ul class="nav-links">
       <li><a href="#team">Team</a></li>
       <li><a href="#problem">Problem</a></li>
       <li><a href="#methods">Methods</a></li>
       <li><a href="#testing">Testing</a></li>
       <li><a href="#management">Management</a></li>
       <li><a href="#resources">Resources</a></li>
+      <li><a href="#downloads">Files</a></li>
     </ul>
   </nav>
 
   <header class="hero">
     <h1>Autonomous Mobile Robotic Arm for Object Detection and Pick-and-Place</h1>
     <p>
-      A mechatronics project integrating ROS2, OpenCV, mobile navigation, robotic manipulation,
-      structural optimization, electrical power design, and autonomous object tracking.
+      A mechatronics project integrating ROS2, OpenCV, mobile platform navigation,
+      robotic manipulation, structural optimization, power architecture, and autonomous tracking.
     </p>
-    <div class="hero-buttons">
+
+    <div class="hero-actions">
       <a class="btn btn-primary" href="#abstract">Read Overview</a>
-      <a class="btn btn-secondary" href="#testing">View Testing</a>
+      <a class="btn btn-secondary" href="#testing">View Demo Section</a>
+      <a class="btn btn-secondary" href="assets/files/final-report.pdf" target="_blank">Open Report</a>
+    </div>
+
+    <div class="hero-tags">
+      <span class="pill">ROS2</span>
+      <span class="pill">OpenCV</span>
+      <span class="pill">RViz2</span>
+      <span class="pill">MoveIt2</span>
+      <span class="pill">3D Printing</span>
+      <span class="pill">Electrical Integration</span>
     </div>
   </header>
 
@@ -265,19 +423,19 @@
       <div class="grid-2">
         <div class="card">
           <h3>Omar Khaled Yousef</h3>
-          <p>Software, ROS2, URDF modeling, OpenCV object tracking, simulation and autonomous navigation.</p>
+          <p>Software, ROS2, URDF modeling, OpenCV object tracking, simulation, and autonomous navigation.</p>
         </div>
         <div class="card">
           <h3>Abdelaziz</h3>
-          <p>Mechanical design, CAD development, electrical architecture, battery and power system testing.</p>
+          <p>Mechanical design, CAD development, electrical architecture, battery selection, and power system testing.</p>
         </div>
         <div class="card">
           <h3>Hamza</h3>
-          <p>3D printing strategy, Ideamaker optimization, structural strength analysis, vacuum gripper study.</p>
+          <p>3D printing strategy, Ideamaker optimization, structural strength analysis, and vacuum gripper study.</p>
         </div>
         <div class="card">
           <h3>Khaled Jalal</h3>
-          <p>Actuation system, platform motors, encoder behavior, control strategy and ROS2-related motion feedback.</p>
+          <p>Actuation system, platform motors, encoder behavior, control strategy, and ROS2-related motion feedback.</p>
         </div>
       </div>
     </section>
@@ -286,8 +444,8 @@
       <h2>Problem Statement</h2>
       <p>
         Traditional robotic systems are often limited to fixed environments and lack flexibility when dealing
-        with dynamic object locations. Our project addresses this by developing an autonomous mobile robotic
-        arm capable of detecting an object, navigating toward it, and preparing for pick-and-place interaction
+        with dynamic object locations. This project addresses that limitation by developing an autonomous mobile
+        robotic arm capable of detecting an object, navigating toward it, and preparing for object interaction
         through an integrated mechanical, electrical, and software system.
       </p>
     </section>
@@ -295,26 +453,24 @@
     <section id="abstract">
       <h2>Abstract</h2>
       <p>
-        This project presents the design and implementation of an autonomous mobile robotic arm system for
-        object detection, navigation, and pick-and-place preparation. The system combines a mobile platform,
-        a robotic arm, ROS2-based control, OpenCV vision tracking, encoder-based navigation feedback, and
-        a structured electrical power architecture. Mechanical components were designed and optimized for
-        fabrication using 3D printing, while load-sensitive parts were strengthened according to stress and
-        torque considerations. On the control side, a simplified URDF model of the platform was built in ROS2,
-        and OpenCV-based tracking was used to detect and follow a ball target. The platform scans its
-        environment, locates the object, navigates toward it, and stops at a defined proximity range.
+        This project presents the design and implementation of an autonomous mobile robotic arm system for object
+        detection, navigation, and pick-and-place preparation. The system combines a mobile platform, robotic arm,
+        ROS2-based control, OpenCV vision tracking, encoder-based motion feedback, and a structured electrical
+        architecture. Mechanical components were optimized for fabrication using 3D printing, while load-sensitive
+        parts were strengthened based on stress and torque considerations. A simplified URDF platform model was
+        developed in ROS2 to test encoder behavior and tracking logic. The navigation behavior is based on scanning
+        the environment, locating the ball, approaching it, and stopping at a target proximity.
       </p>
     </section>
 
     <section>
       <h2>Background - Literature Review</h2>
       <p>
-        Autonomous robotics combines sensing, actuation, embedded control, and software coordination to allow
-        machines to perform tasks with minimal human intervention. Mobile robotics commonly relies on encoders,
-        feedback control, and perception systems for navigation, while robotic manipulators require careful
-        torque analysis, actuator selection, and structural design. This project builds on those ideas by
-        combining a mobile base with a robotic arm and integrating them through ROS2, OpenCV, URDF modeling,
-        and real hardware power distribution.
+        Autonomous robotic systems combine sensing, actuation, feedback control, and software coordination to perform
+        tasks with minimal human intervention. Mobile robotics commonly depends on encoder feedback and perception-based
+        navigation, while robotic manipulators require careful torque analysis, actuator selection, structural design,
+        and stable control. This project combines both domains into a single integrated mechatronics system using ROS2,
+        OpenCV, URDF modeling, and real hardware power distribution.
       </p>
     </section>
 
@@ -325,30 +481,30 @@
 
       <h4>Sensing and Signal Architecture</h4>
       <ul>
-        <li><strong>System Definition and Primary Sensing:</strong> OpenCV-based vision was used for target detection and tracking.</li>
-        <li><strong>Signal Conditioning and Conversion:</strong> Image input was processed to estimate target location relative to the platform.</li>
-        <li><strong>Digital Logic and Data Presentation:</strong> ROS2 and RViz2 were used to observe robot behavior and support decision logic.</li>
+        <li><strong>System Definition and Primary Sensing:</strong> OpenCV-based vision is used for object detection and tracking.</li>
+        <li><strong>Signal Conditioning and Conversion:</strong> Camera input is processed to estimate target position relative to the platform.</li>
+        <li><strong>Digital Logic and Data Presentation:</strong> ROS2 and RViz2 are used to monitor robot behavior and support decision logic.</li>
       </ul>
 
       <h4>Actuation and Mechanical Drive</h4>
       <ul>
-        <li><strong>Fluid Power and Kinematic Chains:</strong> Vacuum gripper concept was studied and suction requirements were estimated.</li>
-        <li><strong>Electrical Actuation and Motor Selection:</strong> Servo motors were considered for the arm, and DC motors were analyzed for the platform.</li>
-        <li><strong>Embedded Controller Selection:</strong> ROS2-compatible onboard control architecture was used to coordinate movement and tracking.</li>
+        <li><strong>Fluid Power and Kinematic Chains:</strong> A vacuum gripper concept was studied and suction requirements were estimated from object weight.</li>
+        <li><strong>Electrical Actuation and Motor Selection:</strong> Servo motors were considered for the robotic arm and DC motors for the mobile platform.</li>
+        <li><strong>Embedded Controller Selection:</strong> A ROS2-compatible onboard control architecture is used to coordinate tracking and movement.</li>
       </ul>
 
       <h4>Control Logic and Programming</h4>
       <ul>
-        <li><strong>Firmware Development:</strong> A simple platform URDF was created in ROS2 using wheel dimensions matching the real platform.</li>
-        <li><strong>I/O Interfacing and Industrial Control:</strong> Encoder behavior was studied to support future closed-loop navigation.</li>
-        <li><strong>Communication and Networking:</strong> ROS2 was used as the communication framework between platform modeling, tracking logic, and navigation behavior.</li>
+        <li><strong>Firmware Development:</strong> A simplified URDF model of the platform was created using real wheel dimensions.</li>
+        <li><strong>I/O Interfacing and Industrial Control:</strong> Encoder behavior was studied to support future closed-loop motion control.</li>
+        <li><strong>Communication and Networking:</strong> ROS2 is used to connect tracking logic, platform motion, and simulation behavior.</li>
       </ul>
 
       <h4>Advanced Modeling and Optimization</h4>
       <ul>
-        <li><strong>Mathematical System Modeling:</strong> Stress, load, and torque effects were considered in print parameter selection and structural design.</li>
-        <li><strong>Stability and Feedback Control:</strong> Target tracking logic was designed so the robot scans, detects, approaches, and stops at a proximity of about 20 cm.</li>
-        <li><strong>Intelligent Control and Final Design:</strong> The platform first performs a 360-degree scan, detects the ball, and then navigates toward it autonomously.</li>
+        <li><strong>Mathematical System Modeling:</strong> Stress, load, and torque effects were used to guide structural optimization and print settings.</li>
+        <li><strong>Stability and Feedback Control:</strong> Tracking logic was designed so the platform scans, detects, approaches, and stops near the object.</li>
+        <li><strong>Intelligent Control and Final Design:</strong> The robot performs a 360-degree scan, detects the ball, navigates toward it, and stops at about 20 cm.</li>
       </ul>
     </section>
 
@@ -364,105 +520,107 @@
       <h3>Final Integration and Demonstration</h3>
       <ul>
         <li><strong>Testing Environment:</strong> ROS2 simulation, OpenCV tracking, and real electrical hardware connection tests were used.</li>
-        <li><strong>Success / Fail or Pass Criteria:</strong> The system is considered successful if it can detect the object, navigate toward it, and stop at the target range while maintaining stable behavior.</li>
-        <li><strong>Results:</strong> The tracking and navigation logic was demonstrated in simulation, and the electrical subsystem underwent initial real-life connection testing.</li>
-        <li><strong>Discussion:</strong> The project has progressed from conceptual design into manufacturing, hardware integration, and autonomous behavior testing, with full validation still ongoing.</li>
+        <li><strong>Success / Fail or Pass Criteria:</strong> The system is successful if it detects the object, navigates toward it, and stops at the target range while remaining stable.</li>
+        <li><strong>Results:</strong> Tracking and navigation logic were demonstrated in simulation, and the electrical subsystem underwent initial real-life connection testing.</li>
+        <li><strong>Discussion:</strong> The project has progressed from conceptual design into fabrication, hardware integration, and autonomous behavior testing, with full validation still ongoing.</li>
       </ul>
 
-<h3>Interactive Project Media</h3>
-<p>
-  This section contains direct access to our demo video, simulation results, screenshots,
-  reports, and supporting project files.
-</p>
-
-<div class="quick-links">
-  <a href="assets/files/final-report.pdf" target="_blank">Final Report</a>
-  <a href="assets/files/presentation.pdf" target="_blank">Presentation</a>
-  <a href="assets/files/weekly-report.pdf" target="_blank">Weekly Report</a>
-  <a href="assets/videos/demo.mp4" target="_blank">Open Demo Video</a>
-</div>
-
-<div class="media-grid">
-  <div class="media-card">
-    <video controls>
-      <source src="assets/videos/demo.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div class="media-content">
-      <h4>Autonomous Tracking Demo</h4>
+      <h3>Interactive Project Media</h3>
       <p>
-        Simulation of the mobile platform detecting a ball, rotating to locate it,
-        navigating toward it, and stopping at the target range.
+        Direct access to our simulation media, screenshots, demo video, and downloadable project files.
       </p>
-    </div>
-  </div>
 
-  <div class="media-card">
-    <img src="assets/images/rviz-demo.png" alt="RViz2 simulation">
-    <div class="media-content">
-      <h4>RViz2 / ROS2 Visualization</h4>
-      <p>
-        URDF-based platform simulation used to test geometry, wheel configuration,
-        and tracking behavior before hardware implementation.
-      </p>
-    </div>
-  </div>
-</div>
+      <div class="quick-links">
+        <a href="assets/files/final-report.pdf" target="_blank">Final Report</a>
+        <a href="assets/files/presentation.pdf" target="_blank">Presentation</a>
+        <a href="assets/files/weekly-report.pdf" target="_blank">Weekly Report</a>
+        <a href="assets/videos/demo.mp4" target="_blank">Open Demo Video</a>
+      </div>
 
-<h3>Project Files</h3>
-<div class="resource-grid">
-  <div class="resource-card">
-    <h4>Final Report</h4>
-    <p>Full technical report including methodology, calculations, testing, and discussion.</p>
-    <a class="resource-link" href="assets/files/final-report.pdf" target="_blank">Open PDF</a>
-  </div>
+      <div class="media-grid">
+        <div class="media-card">
+          <video controls>
+            <source src="assets/videos/demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="media-content">
+            <h4>Autonomous Tracking Demo</h4>
+            <p>
+              Demonstration of the robot scanning for the ball, detecting it, moving toward it,
+              and stopping at the defined range.
+            </p>
+          </div>
+        </div>
 
-  <div class="resource-card">
-    <h4>Presentation Slides</h4>
-    <p>Project presentation slides with weekly progress, results, and subsystem updates.</p>
-    <a class="resource-link" href="assets/files/presentation.pdf" target="_blank">Open Slides</a>
-  </div>
+        <div class="media-card">
+          <img src="assets/images/rviz-demo.png" alt="RViz2 simulation">
+          <div class="media-content">
+            <h4>RViz2 / ROS2 Visualization</h4>
+            <p>
+              Simplified URDF-based platform simulation used to test tracking logic and wheel behavior.
+            </p>
+          </div>
+        </div>
+      </div>
 
-  <div class="resource-card">
-    <h4>Weekly Progress Report</h4>
-    <p>Weekly documentation of tasks completed, blockers, and upcoming actions.</p>
-    <a class="resource-link" href="assets/files/weekly-report.pdf" target="_blank">Open Report</a>
-  </div>
-
-  <div class="resource-card">
-    <h4>Raw Demo Video</h4>
-    <p>Direct access to the full demonstration video file stored in the repository.</p>
-    <a class="resource-link secondary" href="assets/videos/demo.mp4" target="_blank">Open Video File</a>
-  </div>
-</div>
-
-<h3>Image Gallery</h3>
-<div class="gallery">
-  <a href="assets/images/rviz-demo.png" target="_blank">
-    <img src="assets/images/rviz-demo.png" alt="RViz demo">
-  </a>
-  <a href="assets/images/cad-model.png" target="_blank">
-    <img src="assets/images/cad-model.png" alt="CAD model">
-  </a>
-  <a href="assets/images/gantt-chart.png" target="_blank">
-    <img src="assets/images/gantt-chart.png" alt="Gantt chart">
-  </a>
-  <a href="assets/images/wiring-test.jpg" target="_blank">
-    <img src="assets/images/wiring-test.jpg" alt="Wiring test">
-  </a>
-</div>
+      <h3>Image Gallery</h3>
+      <div class="gallery">
+        <a href="assets/images/rviz-demo.png" target="_blank">
+          <img src="assets/images/rviz-demo.png" alt="RViz demo">
+        </a>
+        <a href="assets/images/cad-model.png" target="_blank">
+          <img src="assets/images/cad-model.png" alt="CAD model">
+        </a>
+        <a href="assets/images/gantt-chart.png" target="_blank">
+          <img src="assets/images/gantt-chart.png" alt="Gantt chart">
+        </a>
+        <a href="assets/images/wiring-test.jpg" target="_blank">
+          <img src="assets/images/wiring-test.jpg" alt="Wiring test">
+        </a>
+      </div>
     </section>
 
     <section id="management">
       <h2>Project Management Summary</h2>
       <h3>Gantt Chart - Updated</h3>
       <p>
-        Weekly progress has been tracked across mechanical design, fabrication planning, actuation, power
-        architecture, ROS2 integration, and autonomous navigation. The timeline is updated regularly to reflect
-        completed and ongoing tasks.
+        Weekly progress has been tracked across mechanical design, fabrication planning, actuation,
+        power architecture, ROS2 integration, and autonomous navigation.
       </p>
-      <div class="placeholder">
-        Insert updated Gantt chart image here.
+
+      <img src="assets/images/gantt-chart.png" alt="Updated Gantt Chart" style="width:100%; border-radius:14px; margin-top:14px; border:1px solid var(--border);">
+    </section>
+
+    <section id="downloads">
+      <h2>Project Files & Downloads</h2>
+      <p class="small">
+        These files are hosted directly in the GitHub repository and can be opened or downloaded from this page.
+      </p>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4>Final Report</h4>
+          <p>Full technical report including methodology, calculations, testing, and discussion.</p>
+          <a class="resource-link" href="assets/files/final-report.pdf" target="_blank">Open PDF</a>
+        </div>
+
+        <div class="resource-card">
+          <h4>Presentation Slides</h4>
+          <p>Slides covering progress updates, subsystem design, results, and project management.</p>
+          <a class="resource-link" href="assets/files/presentation.pdf" target="_blank">Open Slides</a>
+        </div>
+
+        <div class="resource-card">
+          <h4>Weekly Report</h4>
+          <p>Weekly documentation of completed tasks, blockers, and planned next steps.</p>
+          <a class="resource-link" href="assets/files/weekly-report.pdf" target="_blank">Open Report</a>
+        </div>
+
+        <div class="resource-card">
+          <h4>Demo Video File</h4>
+          <p>Direct access to the full demo video stored in the repository.</p>
+          <a class="resource-link secondary" href="assets/videos/demo.mp4" target="_blank">Open Video</a>
+        </div>
       </div>
     </section>
 
@@ -481,7 +639,7 @@
       <h2>Appendix</h2>
       <p>
         This section can include CAD screenshots, torque calculations, power calculations, URDF structure,
-        tracking logic flowcharts, electrical wiring sketches, and extra testing evidence.
+        control flowcharts, electrical wiring sketches, and additional testing evidence.
       </p>
     </section>
 
@@ -498,7 +656,7 @@
         </div>
         <div class="card">
           <h3>Testing Assets</h3>
-          <p>Simulation videos, screenshots, hardware connection tests, multimeter measurements, updated Gantt chart.</p>
+          <p>Simulation videos, screenshots, wiring tests, multimeter measurements, and updated Gantt chart files.</p>
         </div>
       </div>
     </section>
@@ -508,12 +666,6 @@
   <div class="footer">
     Autonomous Mobile Robotic Arm Project • GitHub Pages Homepage
   </div>
-<a href="assets/files/final-report.pdf" target="_blank">Final Report</a>
-  <a href="assets/files/final-report.pdf" target="_blank">Final Report</a>
-  <video controls>
-  <source src="assets/videos/demo.mp4" type="video/mp4">
-</video>
-  <a href="assets/images/rviz-demo.png" target="_blank">Open Image</a>
-  
+
 </body>
 </html>
