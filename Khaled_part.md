@@ -8,5 +8,5 @@ Torque Calculation and Actuator Requirement
 
 Torque is a key factor in robotic arm design because each joint must carry the weight of the arm and the object being handled. To make the arm strong enough, we calculated the required torque using the arm dimensions and an assumed load. The maximum torque of the selected motor is 30 kg·cm, which is equal to about 2.94 N·m, and this was used as the starting point for the design.
 
-The torque calculations in the figure show that the payload torque, arm weight torque, and safety factor were all included. The total required torque for the main joint was found to be about 1.85 N·m, while the shoulder joint required about 4.34 N·m. Because this joint needs more force, two actuators were used together to increase torque and ensure safe operation.
+The torque calculations in the figure show that the payload torque, arm weight torque, and safety factor were all included. The total required torque for the main joint was found to be about 1.85 N·m, while the shoulder joint required about 4.34 N·m. Because this joint needs more force, two actuators were used together to increase torque and ensure safe operation.[Electrical Architecture]()
 
