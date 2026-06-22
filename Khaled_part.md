@@ -1,6 +1,6 @@
 ## Actuator Selection and Performance Analysis
 
-Robotic systems use motors to transform electrical energy into mechanical energy. Motors were selected based on torque rating, speed rating, energy consumed, and ease of control of the overall system. A DC geared motor was chosen for the robot platform to provide smooth and stable motion and accurate feedback. The motor operates at 166 RPM or approximately 0.565 m/s linear speed with an estimated 2.7 watts (5.4 watts for both motors) of energy consumed per motor, therefore confirming that the motor is efficient and will provide controlled and stable movement of your robotic system.[Motor Selection and Performance Analysis](Motor_Selection_and_Performance_Analysis_Khaled.pdf)
+Robotic systems use motors to transform electrical energy into mechanical energy. Motors were selected based on torque rating, speed rating, energy consumed, and ease of control of the overall system. A DC geared motor was chosen for the robot platform to provide smooth and stable motion and accurate feedback. The motor operates at 166 RPM or approximately 0.565 m/s linear speed with an estimated 2.7 watts (5.4 watts for both motors) of energy consumed per motor, therefore confirming that the motor is efficient and will provide controlled and stable movement of your robotic system. [Motor Selection and Performance Analysis](Motor_Selection_and_Performance_Analysis_Khaled.pdf)
 
 ## Torque Calculation and Actuator Requirement
 
